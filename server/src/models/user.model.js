@@ -16,9 +16,10 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    require: true,
+    required: true,
     unique: true,
-    minlength: [5, "Email must be at least 5 characters long"],
+    lowercase: true,
+    match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"],
   },
   password: {
     type: String,
@@ -30,7 +31,7 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.methods.genrateAuthToken = function () {
+userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET, {
     expiresIn: "24h",
   });

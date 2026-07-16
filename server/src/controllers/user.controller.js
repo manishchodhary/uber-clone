@@ -25,7 +25,7 @@ export const register = async (req, res) => {
       password: hashPassword,
     });
 
-    const token = await user.genrateAuthToken();
+    const token = await user.generateAuthToken();
 
     res.status(201).json({ token, user });
   } catch (error) {
@@ -52,7 +52,7 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    const token = await user.genrateAuthToken();
+    const token = await user.generateAuthToken();
     res.status(200).json({ token, user });
   } catch (error) {
     console.log("error login controller", error);
