@@ -7,6 +7,7 @@ import CaptainSignUp from "./pages/CaptainSignUp"
 import { UserContext } from "./context/UserContext.jsx"
 import UserProtectWrapper from "./pages/UserProtectWrapper.jsx"
 import Home from "./pages/Home.jsx"
+import Vehicle from "./pages/Vehicle.jsx"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="*" element={<Start/>}/>
         {/* <Route path="/home" element={<UserProtectWrapper><Home/></UserProtectWrapper>}/> */}
         <Route path="/home" element={<Home/>}/>
+        <Route path="/v" element={<Vehicle/>}/>
     
       </Routes></UserContext>
     </div>
