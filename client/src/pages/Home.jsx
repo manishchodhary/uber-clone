@@ -1,8 +1,8 @@
-import Home from "../components/Home.jsx";
+import HomeComponent from "../components/HomeComponent.jsx";
 
 function Home() {
   return <div>
-    <Home/>
+    <HomeComponent/>
   </div>
 }
 

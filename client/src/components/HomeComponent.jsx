@@ -1,12 +1,11 @@
 import logo from "../assets/logo.png";
 import image from "../assets/home.mp4";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import LocationSearch from "./LocationSearch.jsx";
+import VehiclePanel from "./VehiclePanel.jsx";
 
-import VehiclePlane from "./VehiclePlane.jsx";
-
-function Home() {
+function HomeComponent() {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,24 +33,21 @@ function Home() {
           </video>
           <div
             className={`absolute bottom-0 z-10 w-full  bg-white px-5 pt-3 shadow-2xl transition-all duration-300 ${
-              isExpanded ? "h-[100%]" : "h-[50%] rounded-t-3xl"
+              isExpanded ? "h-[100%]" : "h-[40%] rounded-t-3xl"
+          
             }`}
           >
-            {!vehicle ? (
-              <VehiclePlane setVehicle={setVehicle} />
+            {vehicle ? (
+              <VehiclePanel
+                setIsExpanded={setIsExpanded}
+                setVehicle={setVehicle}
+                isExpanded = {isExpanded}
+              />
             ) : (
               <>
                 <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-gray-300"></div>
                 <div className="flex justify-between">
                   <div className="flex flex-col">
-                    {!isExpanded && (
-                      <i
-                        className="ri-arrow-left-long-line text-2xl mb-2.5"
-                        onClick={() => {
-                          setVehicle(false);
-                        }}
-                      ></i>
-                    )}
                     <h2 className="mb-5 text-2xl font-semibold">Find a trip</h2>
                   </div>
                   {isExpanded && (
@@ -94,7 +90,12 @@ function Home() {
                 </form>{" "}
               </>
             )}
-            {isExpanded && <LocationSearch />}
+            {isExpanded && (
+              <LocationSearch
+                setVehicle={setVehicle}
+                setIsExpanded={setIsExpanded}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -102,4 +103,4 @@ function Home() {
   );
 }
 
-export default Home
+export default HomeComponent;

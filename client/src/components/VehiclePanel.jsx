@@ -1,12 +1,26 @@
+import { useState } from "react";
 import "remixicon/fonts/remixicon.css";
+import VehicleDetail from "./VehicleDetail.jsx";
 
-function VehiclePlane({ setVehicle }) {
-  return (
+function VehiclePanel(props) {
+  const [selectVehical, setSelectVehical] = useState(false);
+  return selectVehical ? (
+    <VehicleDetail />
+  ) : (
     <div className="mx-4 mt-4">
+      {!props.isExpanded && (
+        <i
+          className="ri-arrow-left-long-line text-3xl mb-2"
+          onClick={() => {
+            props.setVehicle(false);
+            props.setIsExpanded(true);
+          }}
+        ></i>
+      )}
       <h1 className="mb-3 text-xl font-semibold">Choose Ride</h1>
 
       <div
-        onClick={() => setVehicle(true)}
+        onClick={() => setSelectVehical(true)}
         className="flex cursor-pointer items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 shadow-sm transition-all hover:border-black"
       >
         <div className="flex items-center gap-2">
@@ -25,9 +39,7 @@ function VehiclePlane({ setVehicle }) {
             </div>
 
             <p className="text-xs text-gray-500">2 min away</p>
-            <p className="text-xs text-gray-700">
-              Affordable, compact rides
-            </p>
+            <p className="text-xs text-gray-700">Affordable, compact rides</p>
           </div>
         </div>
 
@@ -35,7 +47,7 @@ function VehiclePlane({ setVehicle }) {
       </div>
 
       <div
-        onClick={() => setVehicle(true)}
+          onClick={() => setSelectVehical(true)}
         className="mt-2 flex cursor-pointer items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 shadow-sm transition-all hover:border-black"
       >
         <div className="flex items-center gap-2">
@@ -54,9 +66,7 @@ function VehiclePlane({ setVehicle }) {
             </div>
 
             <p className="text-xs text-gray-500">2 min away</p>
-            <p className="text-xs text-gray-700">
-              Affordable, compact rides
-            </p>
+            <p className="text-xs text-gray-700">Affordable, compact rides</p>
           </div>
         </div>
 
@@ -64,7 +74,7 @@ function VehiclePlane({ setVehicle }) {
       </div>
 
       <div
-        onClick={() => setVehicle(true)}
+         onClick={() => setSelectVehical(true)}
         className="mt-2 flex cursor-pointer items-center justify-between rounded-xl border border-gray-300 bg-white px-3 py-2 shadow-sm transition-all hover:border-black"
       >
         <div className="flex items-center gap-2">
@@ -83,9 +93,7 @@ function VehiclePlane({ setVehicle }) {
             </div>
 
             <p className="text-xs text-gray-500">2 min away</p>
-            <p className="text-xs text-gray-700">
-              Affordable, compact rides
-            </p>
+            <p className="text-xs text-gray-700">Affordable, compact rides</p>
           </div>
         </div>
 
@@ -95,4 +103,4 @@ function VehiclePlane({ setVehicle }) {
   );
 }
 
-export default VehiclePlane;
+export default VehiclePanel;

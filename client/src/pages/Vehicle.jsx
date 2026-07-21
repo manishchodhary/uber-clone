@@ -1,10 +1,11 @@
-import VehiclePlane from "../components/VehiclePlane.jsx"
+import VehicleDetail from "../components/VehicleDetail.jsx"
+
 
 
 function Vehicle() {
   return (
     <div>
-      <VehiclePlane/>
+      <VehicleDetail/>
     </div>
   )
 }
