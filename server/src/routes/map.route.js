@@ -28,3 +28,5 @@ router.get(
   authUser,
   getAutoCompleteSuggestions,
 );
+
+export default router;

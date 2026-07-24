@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<UserLogin/>}/>
         <Route path="/signup" element={<UserSignup/>}/>
         <Route path="/captain-login" element={<CaptainLogin/>}/>
-        <Route path="/captain-Signup" element={<CaptainSignUp/>}/>
+        <Route path="/captain-signup" element={<CaptainSignUp/>}/>
         <Route path="*" element={<Start/>}/>
         {/* <Route path="/home" element={<UserProtectWrapper><Home/></UserProtectWrapper>}/> */}
         <Route path="/home" element={<Home/>}/>

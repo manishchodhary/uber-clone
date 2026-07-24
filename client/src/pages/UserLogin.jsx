@@ -17,17 +17,17 @@ function UserLogin() {
         email,
         password,
       });
-      if(response.status==200){
-      const data = response.data;
+      if (response.status == 200) {
+        const data = response.data;
 
-      setUser(data.user);
+        setUser(data.user);
 
-      localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.token);
 
-      navigate("/home");}
-      setEmail('')
-      setPassword('')
-
+        navigate("/home");
+      }
+      setEmail("");
+      setPassword("");
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +44,6 @@ function UserLogin() {
             Log in to continue
           </p>
 
-          {/* Email */}
           <div className="mb-5">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Email Address
@@ -60,7 +59,6 @@ function UserLogin() {
             />
           </div>
 
-          {/* Password */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
@@ -76,7 +74,6 @@ function UserLogin() {
             />
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full rounded-lg bg-black py-3 font-semibold text-white transition hover:bg-gray-900"
@@ -85,7 +82,7 @@ function UserLogin() {
           </button>
         </form>
 
-        {/* Signup Link */}
+
         <p className="mt-6 text-center text-sm text-gray-600">
           New here?{" "}
           <Link
@@ -96,7 +93,6 @@ function UserLogin() {
           </Link>
         </p>
 
-        {/* Divider */}
         <div className="my-6 flex items-center">
           <div className="h-px flex-1 bg-gray-300"></div>
 
@@ -105,7 +101,6 @@ function UserLogin() {
           <div className="h-px flex-1 bg-gray-300"></div>
         </div>
 
-        {/* Captain Login */}
         <Link
           to="/captain-login"
           className="block w-full rounded-lg bg-green-600 py-3 text-center font-semibold text-white transition hover:bg-green-700"
