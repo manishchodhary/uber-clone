@@ -37,7 +37,7 @@ export const login = async (req, res) => {
   }
   try {
     const { email, password } = req.body;
-    const captain = await Captain.findOne({ email });
+    const captain = await Captain.findOne({ email })
     if (!captain) {
       return res.status(400).json({ message: "captain not found" });
     }
